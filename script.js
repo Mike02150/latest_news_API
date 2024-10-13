@@ -34,7 +34,13 @@ function displayNews(articles) {
         const newsItem = document.createElement('div');
         newsItem.classList.add('news-item');
 
+        // Check if image is available and not "None"
+        const imageHTML = article.image && article.image !== "None" 
+            ? `<img src="${article.image}" alt="${article.title}" style="max-width:100%; height:auto; margin-bottom: 10px;">`
+            : '';
+
         newsItem.innerHTML = `
+            ${imageHTML}
             <h2><a href="${article.url}" target="_blank">${article.title}</a></h2>
             <p><strong>Published:</strong> ${new Date(article.published).toLocaleDateString()}</p>
             <p>${article.description}</p>
@@ -43,6 +49,7 @@ function displayNews(articles) {
         newsContainer.appendChild(newsItem);
     });
 }
+
 
 // Fetch news on page load
 fetchNews();
