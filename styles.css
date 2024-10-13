@@ -16,33 +16,6 @@ h1 {
     margin: 0;
 }
 
-.search-container {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-}
-
-.search-container input {
-    width: 300px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.search-container button {
-    padding: 10px 20px;
-    margin-left: 10px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-.search-container button:hover {
-    background-color: #555;
-}
-
 .news-container {
     margin: 20px auto;
     max-width: 900px;
@@ -84,4 +57,57 @@ h1 {
     text-align: center;
     margin-top: 20px;
     font-size: 18px;
+}
+
+/* Search Bar Styling */
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    gap: 10px;
+}
+
+#search-input {
+    width: 300px;
+    padding: 12px 15px;
+    border-radius: 25px;
+    border: 2px solid #138065;
+    outline: none;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+#search-input:focus {
+    border-color: #0a684e;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#search-button {
+    padding: 12px 20px;
+    background-color: #138065;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#search-button:hover {
+    background-color: #0a684e;
+}
+
+#search-button:active {
+    transform: scale(0.98);
+}
+
+@media (max-width: 500px) {
+    #search-input {
+        width: 200px;
+    }
+
+    #search-button {
+        padding: 10px 15px;
+    }
 }
