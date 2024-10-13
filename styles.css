@@ -102,6 +102,15 @@ h1 {
     transform: scale(0.98);
 }
 
+/* Loading Indicator */
+#loading-indicator {
+    text-align: center;
+    font-size: 18px;
+    display: none;
+    margin: 20px;
+    color: #138065;
+}
+
 @media (max-width: 500px) {
     #search-input {
         width: 200px;
@@ -110,4 +119,12 @@ h1 {
     #search-button {
         padding: 10px 15px;
     }
+}
+
+#loading-indicator {
+    text-align: center;
+    font-size: 18px;
+    display: none; /* Hidden by default */
+    margin: 20px;
+    color: #138065;
 }

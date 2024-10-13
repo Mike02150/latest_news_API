@@ -3,18 +3,19 @@ document.addEventListener('DOMContentLoaded', function () {
     const newsContainer = document.getElementById('news-container');
     const searchButton = document.getElementById("search-button");
     const searchInput = document.getElementById("search-input");
+    const loadingElement = document.getElementById('loading-indicator'); // Access the loading element here
 
-    // Fetch news articles
     async function fetchNews(query = '') {
+        toggleLoading(true); // Show loading indicator at the start
         let apiUrl = `https://api.currentsapi.services/v1/latest-news?apiKey=${apiKey}&language=en&country=PH`;
         if (query) {
             apiUrl = `https://api.currentsapi.services/v1/search?apiKey=${apiKey}&keywords=${query}&language=en&country=PH`;
         }
-
+    
         try {
             const response = await fetch(apiUrl);
             const data = await response.json();
-
+    
             if (response.ok) {
                 displayNews(data.news);
             } else {
@@ -22,6 +23,8 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         } catch (error) {
             newsContainer.innerHTML = `<p class="error">Error: ${error.message}</p>`;
+        } finally {
+            toggleLoading(false); // Hide loading indicator after the data is fetched
         }
     }
 
@@ -52,6 +55,11 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Function to toggle loading indicator visibility
+    function toggleLoading(isLoading) {
+        loadingElement.style.display = isLoading ? 'block' : 'none';
+    }
+
     // Fetch default news on page load
     fetchNews();
 
@@ -59,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
     searchButton.addEventListener("click", async () => {
         const query = searchInput.value.trim();
         if (query !== "") {
+            toggleLoading(true); // Show loading indicator before starting the search
             await fetchNews(query);
         } else {
             alert("Please enter a search query.");
