@@ -1,7 +1,3 @@
-Here’s a simple `README.md` file for your project that describes the functionality and how to run it:
-
----
-
 # CurrentsAPI News App
 
 This is a simple web application that fetches the latest news articles from the CurrentsAPI and allows users to search for news by keyword. It includes a loading indicator to enhance user experience by showing when data is being fetched.
