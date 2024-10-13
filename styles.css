@@ -1,27 +1,76 @@
+/* General Styling */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 header {
     background-color: #333;
     color: #fff;
-    padding: 10px;
+    padding: 20px;
     text-align: center;
+    position: relative; /* To allow positioning of the dark mode button */
 }
 
 h1 {
     margin: 0;
 }
 
+.toggle-container {
+    text-align: center;
+    margin-top: 10px;
+}
+
+#toggle-dark-mode {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #FFA726;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#toggle-dark-mode:hover {
+    background-color: #FF9800;
+}
+
+#toggle-dark-mode:active {
+    transform: scale(0.98);
+}
+
+/* Hero Section */
+.hero {
+    background-color: #138065;
+    color: white;
+    text-align: center;
+    padding: 10px 10px;
+    margin-bottom: 20px;
+}
+
+.hero h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 18px;
+}
+
+/* News Container */
 .news-container {
     margin: 20px auto;
     max-width: 900px;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
 
 .news-item {
@@ -35,23 +84,27 @@ h1 {
 }
 
 .news-item h2 {
-    font-size: 20px;
+    font-size: 22px;
     margin: 0 0 10px;
+    color: #138065;
 }
 
 .news-item p {
     margin: 0;
+    color: #555;
 }
 
 .news-item a {
-    color: #333;
+    color: #138065;
     text-decoration: none;
 }
 
 .news-item a:hover {
     text-decoration: underline;
+    color: #FFA726;
 }
 
+/* Loading Indicator */
 .loading,
 .error {
     text-align: center;
@@ -102,15 +155,7 @@ h1 {
     transform: scale(0.98);
 }
 
-/* Loading Indicator */
-#loading-indicator {
-    text-align: center;
-    font-size: 18px;
-    display: none;
-    margin: 20px;
-    color: #138065;
-}
-
+/* Responsive Design */
 @media (max-width: 500px) {
     #search-input {
         width: 200px;
@@ -121,10 +166,37 @@ h1 {
     }
 }
 
+/* Dark Mode */
+body.dark-mode {
+    background-color: #1c1c1c;
+    color: #f4f4f4;
+}
+
+body.dark-mode .hero {
+    background-color: #0a684e;
+}
+
+body.dark-mode .news-container {
+    background-color: #333;
+    color: #f4f4f4;
+}
+
+body.dark-mode .news-item h2 {
+    color: #FFA726;
+}
+
+body.dark-mode .news-item p {
+    color: #ccc;
+}
+
+body.dark-mode header {
+    background-color: #1c1c1c;
+}
+
+/* Loading Indicator */
 #loading-indicator {
     text-align: center;
     font-size: 18px;
-    display: none; /* Hidden by default */
     margin: 20px;
     color: #138065;
 }
