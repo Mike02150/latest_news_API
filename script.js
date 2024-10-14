@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const loadingElement = document.getElementById('loading-indicator');
     const toggleDarkModeButton = document.getElementById('toggle-dark-mode');
 
+    // Function to fetch news articles from CurrentsAPI
     async function fetchNews(query = '') {
         toggleLoading(true);
         let apiUrl = `https://api.currentsapi.services/v1/latest-news?apiKey=${apiKey}&language=en&country=PH`;
@@ -29,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // Function to display news articles dynamically on the page
     function displayNews(articles) {
         newsContainer.innerHTML = '';
         if (!articles || articles.length === 0) {
